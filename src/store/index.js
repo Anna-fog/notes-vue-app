@@ -50,10 +50,6 @@ export default createStore({
       }
     },
 
-    addNewNoteLS(state) {
-      localStorage.setItem('notesList', state.notesList);
-    },
-
     showNote(state, note) {
       state.currentNote = {body: note.body, id: note.id, noteIsChanged: false, clickOnNote: true}
     },
