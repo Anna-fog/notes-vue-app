@@ -16,7 +16,7 @@
           @click="openDeletedNote(note)">
 
         <button @click="restoreNote(note)"
-                class="add-notes__btn-delete add-notes__btn-delete_restore"
+                class="btn btn_restore"
                 :class="{ sepiaBg: changeColorScheme }">
           <img title="restore note" src="../assets/restore.svg" alt="Restore">
         </button>
@@ -27,7 +27,7 @@
         <div v-else>{{ note.body }}</div>
 
         <button @click.stop="deleteNoteFromArchive(note)"
-                class="add-notes__btn-delete add-notes__btn-delete_archive"
+                class="btn btn_archive"
                 :class="{ sepiaBg: changeColorScheme }">
           <img title="delete note" src="../assets/delete.svg" alt="Delete">
         </button>
@@ -78,7 +78,7 @@
       }
 
       @media (max-width: 867px) {
-        padding: 15px 30px;
+        padding: 20px 45px;
       }
     }
   }

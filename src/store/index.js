@@ -15,7 +15,9 @@ export default createStore({
       clickOnNote: false
     },
 
-    changeColorScheme: false
+    changeColorScheme: false,
+
+    fontSize: 18
   },
 
   plugins: [createPersistedState()],
@@ -35,7 +37,11 @@ export default createStore({
     },
     changeColorScheme(state) {
       return state.changeColorScheme;
+    },
+    fontSize(state) {
+      return state.fontSize;
     }
+
   },
 
   mutations: {
@@ -94,6 +100,18 @@ export default createStore({
 
     toggleColors(state) {
       state.changeColorScheme = !state.changeColorScheme;
+    },
+
+    enlargeFontSize(state) {
+      if (state.fontSize < 20 ) {
+        state.fontSize +=  1
+      }
+    },
+
+    decreaseFontSize(state) {
+      if (state.fontSize > 14 ) {
+        state.fontSize -=  1
+      }
     }
   },
 
