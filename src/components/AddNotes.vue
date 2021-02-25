@@ -1,7 +1,7 @@
 <template>
     <div class="add-notes">
         <form @submit.prevent="addNewNote" class="add-notes__form">
-            <textarea @keyup.enter.shift="addNewNote" v-model="currentNote.body"
+            <textarea @keyup.enter.shift="addNewNote" v-model.trim="currentNote.body"
                 @input="checkChanges" name="field"
                 class="add-notes__field" :class="{ sepiaField: changeColorScheme }">
             </textarea>
