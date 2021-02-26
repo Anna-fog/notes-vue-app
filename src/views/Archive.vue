@@ -15,22 +15,18 @@
           v-for="(note, i) in deletedNotes" :key="i"
           @click="openDeletedNote(note)">
 
-        <button @click="restoreNote(note)"
-                class="btn btn_restore"
-                :class="{ sepiaBg: changeColorScheme }">
-          <img title="restore note" src="../assets/restore.svg" alt="Restore">
-        </button>
+        <Btn v-show="note" title="restore note" class="btn_restore" @click.stop="restoreNote(note)">
+          <img src="../assets/restore.svg" alt="Restore">
+        </Btn>
 
         <div v-if="note.clickOnNote">
           {{ note.body.toString().slice(0, 20) }} {{ note.body.length > 20 ? '..' : null }}
         </div>
         <div v-else>{{ note.body }}</div>
 
-        <button @click.stop="deleteNoteFromArchive(note)"
-                class="btn btn_archive"
-                :class="{ sepiaBg: changeColorScheme }">
-          <img title="delete note" src="../assets/delete.svg" alt="Delete">
-        </button>
+        <Btn v-show="note" title="delete note" class="btn_archive" @click.stop="deleteNoteFromArchive(note)">
+          <img src="../assets/delete.svg" alt="Delete">
+        </Btn>
 
       </li>
     </ul>
@@ -39,12 +35,16 @@
 
 <script>
   import {mapGetters, mapMutations, mapActions} from "vuex";
+  import Btn from "../components/Btn";
 
   export default {
     computed: mapGetters(['deletedNotes', 'changeColorScheme']),
     methods: {
       ...mapMutations(['deleteNoteFromArchive', 'openDeletedNote', 'toggleColors']),
       ...mapActions(['restoreNote'])
+    },
+    components: {
+      Btn
     }
   }
 </script>
@@ -66,7 +66,6 @@
     }
 
     &__item {
-      min-height: 50px;
       box-sizing: border-box;
       cursor: pointer;
       border-bottom: 1px solid #404A4D;

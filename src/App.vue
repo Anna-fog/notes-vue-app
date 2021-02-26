@@ -43,6 +43,8 @@ body {
   a {
     font-weight: bold;
     color: #404A4D;
+    text-decoration: none;
+    border-bottom: 1px solid;
     transition: .4s all;
     &:hover {
       color: #819094;
@@ -56,7 +58,7 @@ body {
 
     &.router-link-exact-active {
       color: #469DA3;
-      text-decoration: none;
+      border-bottom: none;
       transition: .4s all;
       &:hover {
         color: #9FC0C0;
