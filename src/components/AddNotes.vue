@@ -19,29 +19,22 @@
             </button>
         </form>
 
-        <button title="clear field"
-            @click.stop="clearField" v-show="currentNote.body"
-            class="btn btn_clear" :class="{ sepiaBg: changeColorScheme }">&times;
-        </button>
-        <button title="enlarge font size"
-                @click.stop="enlargeFontSize" v-show="currentNote.body"
-                class="btn btn_enlarge" :class="{ sepiaBg: changeColorScheme }">+
-        </button>
-        <button title="decrease font size"
-                @click.stop="decreaseFontSize" v-show="currentNote.body"
-                class="btn btn_decrease" :class="{ sepiaBg: changeColorScheme }">-
-        </button>
-        <button v-show="currentNote.clickOnNote"
-            @click.stop="deleteNote"
-            class="btn btn_delete" :class="{ sepiaBg: changeColorScheme }">
+        <Btn title="clear field" class="btn_clear" @click.stop="clearField">&times;</Btn>
+
+        <Btn title="enlarge font size" class="btn_enlarge" @click.stop="enlargeFontSize">+</Btn>
+
+        <Btn title="decrease font size" class="btn_decrease" @click.stop="decreaseFontSize">-</Btn>
+
+        <Btn v-show="currentNote.clickOnNote && currentNote.body" title="delete note" class="btn_delete" @click.stop="deleteNote">
             <img title="delete note" src="../assets/delete.svg" alt="Delete">
-        </button>
+        </Btn>
     </div>
 </template>
 
 
 <script>
     import { mapGetters, mapMutations } from "vuex";
+    import Btn from "./Btn.vue";
 
     export default {
         computed: {
@@ -50,6 +43,9 @@
 
         methods: {
             ...mapMutations(['addNewNote', 'checkChanges', 'clearField', 'deleteNote', 'enlargeFontSize', 'decreaseFontSize']),
+        },
+        components: {
+            Btn
         }
     }
 </script>
@@ -120,65 +116,7 @@
         }
     }
 
-    .btn {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        right: 110px;
-        height: 30px;
-        width: 30px;
-        border: 1px solid #7EACAC;
-        border-radius: 2px;
-        font-size: 20px;
-        background-color: #fff;
-        color: #7EACAC;
-        cursor: pointer;
-        transition: .4s box-shadow;
-
-        &:hover {
-            box-shadow: 1px 1px 5px rgb(126 172 172 / 50%);
-        }
-
-        @media (max-width: 867px) {
-            right: 80px;
-            &:hover {
-                box-shadow: none;
-            }
-        }
-
-        &_clear {
-            top: 20px;
-        }
-
-        &_delete {
-            bottom: 20px;
-        }
-
-        &_enlarge {
-            top: 60px;
-        }
-        &_decrease {
-            top: 100px;
-            padding-bottom: 5px;
-        }
-
-        &_archive {
-            top: 9px;
-            right: 15px;
-            bottom: 0;
-            @media (max-width: 867px) {
-                right: 15px !important;
-            }
-        }
-
-        &_restore {
-            top: 9px;
-            left: 15px;
-        }
-    }
-
-    .sepiaField {
+   .sepiaField {
         background: linear-gradient(to bottom, #9FC0C0 1px, #E2DFD5 1px, #E2DFD5);
         background-size: 100% 38px;
         background-attachment: local;

@@ -66,6 +66,8 @@
     }
 
     &__item {
+      min-height: 50px;
+      box-sizing: border-box;
       cursor: pointer;
       border-bottom: 1px solid #404A4D;
       padding: 15px 90px;
