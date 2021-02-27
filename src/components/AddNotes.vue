@@ -4,8 +4,7 @@
             <textarea @keyup.enter.shift="addNewNote" v-model.trim="currentNote.body"
                 @input="checkChanges" name="field"
                 class="add-notes__field" :class="{ sepiaField: changeColorScheme }"
-                :style="{ fontSize: fontSize + 'px' }"
-            >
+                :style="{ fontSize: fontSize + 'px' }">
             </textarea>
             <button v-if="!currentNote.noteIsChanged"
                     class="add-notes__button" type="submit"

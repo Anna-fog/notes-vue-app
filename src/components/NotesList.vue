@@ -1,19 +1,23 @@
 <template>
     <ul class="notes-list" :class="{ sepiaBg: changeColorScheme }">
         <h5 class="notes-list__title">All notes</h5>
-        <li v-for="(note, i) in notesList"
-            @click="showNote(note)"
-            :key="i" class="notes-list__item"
-            :class="{ active: currentNote.clickOnNote && currentNote.id === note.id }">
 
-            {{ note.body.toString().slice(0, 20) }} {{ note.body.length > 20 ? '..' : null }}
+        <transition-group name="up">
+            <li v-for="note in notesList"
+                @click="showNote(note)"
+                :key="note.id" class="notes-list__item"
+                :class="{ active: currentNote.clickOnNote && currentNote.id === note.id }">
 
-            <button title="save changes" @click.stop="saveChanges"
-                    v-show="currentNote.noteIsChanged && currentNote.id === note.id"
-                    class="notes-list__save">
-                <img src="../assets/add.svg" alt="Save">
-            </button>
-        </li>
+                {{ note.body.toString().slice(0, 20) }} {{ note.body.length > 20 ? '..' : null }}
+
+                <button title="save changes" @click.stop="saveChanges"
+                        v-show="currentNote.noteIsChanged && currentNote.id === note.id"
+                        class="notes-list__save">
+                    <img src="../assets/add.svg" alt="Save">
+                </button>
+            </li>
+        </transition-group>
+
     </ul>
 </template>
 
@@ -109,6 +113,17 @@
    body .sepiaBg {
         background-color: #E2DFD5;
 
+    }
+
+    .up-enter-active,
+    .up-leave-active {
+        transition: all 0.3s ease;
+    }
+
+    .up-enter-from,
+    .up-leave-to {
+        transform: translateY(-30px);
+        opacity: 0;
     }
 
 </style>
