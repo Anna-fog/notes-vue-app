@@ -112,7 +112,6 @@
 
    body .sepiaBg {
         background-color: #E2DFD5;
-
     }
 
     .up-enter-active,
@@ -124,6 +123,10 @@
     .up-leave-to {
         transform: translateY(-30px);
         opacity: 0;
+    }
+
+    .up-move {
+        transition: transform .3s;
     }
 
 </style>
