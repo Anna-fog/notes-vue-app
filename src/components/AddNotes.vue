@@ -61,6 +61,10 @@
         width: 100%;
         position: relative;
 
+        @media (max-width: 867px) {
+            height: 63vh;
+        }
+
         &__form {
             width: 100%;
             display: flex;

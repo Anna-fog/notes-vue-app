@@ -53,7 +53,7 @@
 
         @media (max-width: 867px) {
             width: 100%;
-            height: 200px;
+            height: 155px;
             overflow: auto;
             border-right: 1px solid #404A4D;
             border-bottom: none;
