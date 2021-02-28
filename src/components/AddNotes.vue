@@ -61,10 +61,6 @@
         width: 100%;
         position: relative;
 
-        @media (max-width: 867px) {
-            height: 63vh;
-        }
-
         &__form {
             width: 100%;
             display: flex;
@@ -72,7 +68,7 @@
 
         &__field {
             width: calc(100% - 90px);
-            min-height: 89vh;
+            height: 89vh;
             box-sizing: border-box;
             padding: 6px 45px 45px 20px;
             border-radius: 0;
@@ -95,6 +91,7 @@
             @media (max-width: 867px) {
                 width: calc(100% - 65px);
                 padding: 6px 30px 30px 15px;
+                height: 63vh;
             }
         }
 
