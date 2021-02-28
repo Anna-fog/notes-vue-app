@@ -83,15 +83,20 @@
       line-height: 20px;
       background-color: #fff;
       transition: .4s all;
+
       &:hover {
-        background-color: #BAD7D7;
+        color: #4692A3;
       }
 
       @media (max-width: 867px) {
         padding: 20px 45px;
+        &:hover {
+          color: #404A4D;
+        }
       }
     }
   }
+
 
   .fade-enter-active,
   .fade-leave-active {
