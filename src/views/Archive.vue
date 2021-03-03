@@ -21,10 +21,13 @@
               <img src="../assets/restore.svg" alt="Restore">
             </Btn>
 
-            <div v-if="note.clickOnNote">
-              {{ note.body.toString().slice(0, 20) }} {{ note.body.length > 20 ? '..' : null }}
-            </div>
-            <div v-else>{{ note.body }}</div>
+            <transition name="fade" mode="out-in">
+              <div key="1" v-if="note.clickOnNote">
+                {{ note.body.toString().slice(0, 20) }} {{ note.body.length > 20 ? '..' : null }}
+              </div>
+              <div key="2" v-else>{{ note.body }}</div>
+            </transition>
+
 
             <Btn v-show="note" title="delete note" class="btn_archive" @click.stop="deleteNoteFromArchive(note)">
               <img src="../assets/delete.svg" alt="Delete">
