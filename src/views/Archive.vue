@@ -80,6 +80,7 @@
     &__item {
       box-sizing: border-box;
       cursor: pointer;
+      overflow-wrap: break-word;
       border-bottom: 1px solid #404A4D;
       padding: 15px 90px;
       position: relative;

@@ -91,7 +91,7 @@
             @media (max-width: 867px) {
                 width: calc(100% - 65px);
                 padding: 6px 30px 30px 15px;
-                height: 63vh;
+                height: calc(100vh - 248px);
             }
         }
 
