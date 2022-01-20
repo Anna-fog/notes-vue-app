@@ -5,18 +5,14 @@ export default createStore({
 
   state: {
     notesList: [],
-
     deletedNotes: [],
-
     currentNote: {
       body: '',
       id: '',
       noteIsChanged: false,
       clickOnNote: false
     },
-
     changeColorScheme: false,
-
     fontSize: 18
   },
 
@@ -47,12 +43,12 @@ export default createStore({
   mutations: {
     addNewNote(state) {
       if (state.currentNote.body) {
-        let {id, body, noteIsChanged} = state.currentNote;
-        id = Date.now();
-        body = state.currentNote.body;
-        noteIsChanged = false;
-        state.notesList.unshift({id, body, noteIsChanged});
-        state.currentNote = {id: '', body: '', noteIsChanged: false, clickOnNote: false};
+        const newNote = {
+          ...state.currentNote,
+          id: Date.now(),
+        }
+        state.notesList.unshift(newNote);
+        this.commit('clearCurrentNote');
       }
     },
 
@@ -74,7 +70,7 @@ export default createStore({
             note.body = state.currentNote.body;
           }
         });
-        state.currentNote = {id: '', body: '', noteIsChanged: false, clickOnNote: false};
+        this.commit('clearCurrentNote');
       }
     },
 
@@ -87,6 +83,10 @@ export default createStore({
       const deletedTemp = state.currentNote;
       state.deletedNotes.unshift(deletedTemp);
       state.notesList = state.notesList.filter(note => note.id !== state.currentNote.id);
+      this.commit('clearCurrentNote');
+    },
+
+    clearCurrentNote(state) {
       state.currentNote = {id: '', body: '', noteIsChanged: false, clickOnNote: false};
     },
 
@@ -95,7 +95,9 @@ export default createStore({
     },
 
     openDeletedNote(state, note) {
-      note.clickOnNote = !note.clickOnNote;
+      if (note.body.length > 20) {
+        note.clickOnNote = !note.clickOnNote;
+      }
     },
 
     toggleColors(state) {

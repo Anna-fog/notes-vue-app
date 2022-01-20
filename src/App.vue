@@ -1,11 +1,23 @@
 <template>
-  <div class="app-wrapper" :class="{ darkBg: changeColorScheme }">
+  <div
+      class="app-wrapper"
+      :class="{ darkBg: changeColorScheme }"
+  >
 
     <div id="nav" class="nav-menu">
-      <router-link to="/" :class="{ sepiaColor: changeColorScheme }" >Your notes</router-link>
-      <router-link to="/archive" :class="{ sepiaColor: changeColorScheme }">Deleted</router-link>
+      <router-link
+          to="/"
+          :class="{ sepiaColor: changeColorScheme }"
+      >
+        Your notes
+      </router-link>
+      <router-link
+          to="/archive"
+          :class="{ sepiaColor: changeColorScheme, 'empty': !deletedNotes.length }"
+      >
+        Deleted
+      </router-link>
     </div>
-
     <router-view/>
   </div>
 </template>
@@ -14,13 +26,13 @@
   import { mapGetters } from 'vuex';
 
   export default {
-    computed: mapGetters(['changeColorScheme'])
+    computed: mapGetters(['changeColorScheme', 'deletedNotes'])
   }
 
 </script>
 
 <style lang="scss">
-  @import 'src/assets/style';
+  @import 'src/assets/styles/style';
 
 body {
   margin: 0;
@@ -31,7 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #404A4D;
+  color: $dark-space;
 }
 
 .nav-menu {
@@ -40,38 +52,42 @@ body {
   width: 300px;
   justify-content: space-around;
   margin: 0 auto;
+
   a {
     font-weight: bold;
-    color: #404A4D;
+    color: $dark-space;
     text-decoration: none;
     border-bottom: 1px solid;
     transition: .4s all;
     &:hover {
-      color: #819094;
+      color: $dark-storm-cloud;
     }
 
     @media (max-width: 867px) {
       &:hover {
-        color: #404A4D;
+        color: $dark-space;
       }
     }
 
     &.router-link-exact-active {
-      color: #469DA3;
+      color: $aqua-fresco;
       border-bottom: none;
       transition: .4s all;
       &:hover {
-        color: #9FC0C0;
+        color: $frosty-glade;
       }
 
       @media (max-width: 867px) {
         &:hover {
-          color: #469DA3;
+          color: $aqua-fresco;
         }
       }
-
     }
   }
+}
+
+.nav-menu .empty {
+  color: $dark-storm-cloud;
 }
 
 .app-wrapper {
@@ -80,11 +96,11 @@ body {
 }
 
 .darkBg {
-  background-color: #404040;
+  background-color: $bauhaus;
 }
 
 body .sepiaColor {
-  color: #E2DFD5;
+  color: $nuance;
 }
   body {
    -webkit-touch-callout: none;

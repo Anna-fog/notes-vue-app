@@ -1,7 +1,10 @@
 <template>
-    <button v-show="currentNote.body"
-            class="btn" :class="{ sepiaBg: changeColorScheme }">
-            <slot></slot>
+    <button
+        v-show="currentNote.body"
+        class="btn"
+        :class="{ sepiaBg: changeColorScheme }"
+    >
+      <slot></slot>
     </button>
 </template>
 
@@ -16,25 +19,26 @@
 </script>
 
 <style lang="scss">
+@import 'src/assets/styles/style';
 
     .btn {
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
-        right: 110px;
+        right: 100px;
         height: 30px;
         width: 30px;
-        border: 1px solid #7EACAC;
+        border: 1px solid $galaxy-green;
         border-radius: 2px;
         font-size: 20px;
-        background-color: #fff;
-        color: #7EACAC;
+        background-color: $color-white;
+        color: $galaxy-green;
         cursor: pointer;
         transition: .4s box-shadow;
 
         &:hover {
-            box-shadow: 1px 1px 5px rgb(126 172 172 / 50%);
+            box-shadow: 1px 1px 5px rgba(126 172 172 / 70%);
         }
 
         @media (max-width: 867px) {
