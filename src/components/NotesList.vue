@@ -41,10 +41,14 @@
     export default {
         computed: mapGetters(['notesList', 'currentNote', 'changeColorScheme']),
         methods: {
-            ...mapMutations(['showNote', 'saveChanges', 'addNewNote']),
+            ...mapMutations(['showNote', 'saveChanges', 'addNewNote', 'clearCurrentNote']),
           addNote() {
-            this.saveChanges();
-            this.addNewNote();
+              if (!this.currentNote.noteIsChanged && this.currentNote.id !== '') {
+                this.clearCurrentNote();
+              } else {
+                this.saveChanges();
+                this.addNewNote();
+              }
           }
         }
     }
