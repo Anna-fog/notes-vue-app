@@ -59,6 +59,7 @@
         &_enlarge {
             top: 60px;
         }
+
         &_decrease {
             top: 100px;
         }
