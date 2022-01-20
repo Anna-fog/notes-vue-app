@@ -95,7 +95,7 @@
             width: calc(100% - 90px);
             height: 89vh;
             box-sizing: border-box;
-            padding: 6px 49px 45px 20px;
+            padding: 6px 50px 45px 20px;
             border-radius: 0;
             border-color: $dark-space;
             border-right: none;
@@ -113,9 +113,9 @@
                 outline: none;
             }
 
-            @media (max-width: 867px) {
+            @media (max-width: $md) {
                 width: calc(100% - 65px);
-                padding: 6px 30px 30px 15px;
+                padding: 6px 45px 30px 15px;
                 height: calc(100vh - 248px);
             }
         }
@@ -132,7 +132,7 @@
                 background-color: $frosty-glade;
             }
 
-            @media (max-width: 867px) {
+            @media (max-width: $md) {
                 width: 65px;
                 &:hover {
                     background-color: $galaxy-green;

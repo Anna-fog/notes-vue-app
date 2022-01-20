@@ -67,9 +67,9 @@
             width: 35%;
         }
 
-        @media (max-width: 867px) {
+        @media (max-width: $md) {
             width: 100%;
-            height: 155px;
+            height: 151px;
             overflow: auto;
             border-right: 1px solid $dark-space;
             border-bottom: none;
@@ -111,7 +111,7 @@
                     transform: scale(1.1);
                 }
 
-                @media (max-width: 867px) {
+                @media (max-width: $md) {
                     &:hover {
                         transform: none;
                     }

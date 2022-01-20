@@ -63,7 +63,7 @@ body {
       color: $dark-storm-cloud;
     }
 
-    @media (max-width: 867px) {
+    @media (max-width: $md) {
       &:hover {
         color: $dark-space;
       }
@@ -77,7 +77,7 @@ body {
         color: $frosty-glade;
       }
 
-      @media (max-width: 867px) {
+      @media (max-width: $md) {
         &:hover {
           color: $aqua-fresco;
         }

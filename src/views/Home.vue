@@ -39,7 +39,7 @@ export default {
         display: flex;
         margin-top: 30px;
 
-        @media (max-width: 867px) {
+        @media (max-width: $md) {
             flex-direction: column;
         }
     }
@@ -56,7 +56,7 @@ export default {
                 fill: $lily-scent-green;
             }
         }
-        @media (max-width: 867px) {
+        @media (max-width: $md) {
             &:hover {
                 path {
                     fill: $frosty-glade;

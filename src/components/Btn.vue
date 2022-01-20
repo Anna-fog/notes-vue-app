@@ -26,7 +26,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        right: 100px;
+        right: 110px;
         height: 30px;
         width: 30px;
         border: 1px solid $galaxy-green;
@@ -41,7 +41,7 @@
             box-shadow: 1px 1px 5px rgba(126 172 172 / 70%);
         }
 
-        @media (max-width: 867px) {
+        @media (max-width: $md) {
             right: 80px;
             &:hover {
                 box-shadow: none;
@@ -68,7 +68,7 @@
             top: 9px;
             right: 15px;
             bottom: 0;
-            @media (max-width: 867px) {
+            @media (max-width: $md) {
                 right: 15px !important;
             }
         }

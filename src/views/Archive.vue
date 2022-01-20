@@ -111,7 +111,7 @@
         color: $water-carrier;
       }
 
-      @media (max-width: 867px) {
+      @media (max-width: $md) {
         padding: 20px 45px;
         &:hover {
           color: $dark-space;
