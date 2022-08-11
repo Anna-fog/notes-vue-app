@@ -1,19 +1,19 @@
 <template>
   <div
-      class="app-wrapper"
-      :class="{ darkBg: changeColorScheme }"
+    class="app-wrapper"
+    :class="{ darkBg: isDarkTheme }"
   >
 
     <div id="nav" class="nav-menu">
       <router-link
-          to="/"
-          :class="{ sepiaColor: changeColorScheme }"
+        to="/"
+        :class="{ sepiaColor: isDarkTheme }"
       >
         Your notes
       </router-link>
       <router-link
-          to="/archive"
-          :class="{ sepiaColor: changeColorScheme, 'empty': !deletedNotes.length }"
+        to="/archive"
+        :class="{ sepiaColor: isDarkTheme, 'empty': !deletedNotes.length }"
       >
         Deleted
       </router-link>
@@ -26,13 +26,13 @@
   import { mapGetters } from 'vuex';
 
   export default {
-    computed: mapGetters(['changeColorScheme', 'deletedNotes'])
+    computed: mapGetters(['isDarkTheme', 'deletedNotes'])
   }
 
 </script>
 
 <style lang="scss">
-  @import 'src/assets/styles/style';
+@import 'src/assets/styles/style';
 
 body {
   margin: 0;
@@ -59,6 +59,7 @@ body {
     text-decoration: none;
     border-bottom: 1px solid;
     transition: .4s all;
+
     &:hover {
       color: $dark-storm-cloud;
     }
@@ -84,10 +85,14 @@ body {
       }
     }
   }
-}
 
-.nav-menu .empty {
-  color: $dark-storm-cloud;
+  .sepiaColor {
+    color: $nuance;
+  }
+
+  .empty {
+    color: $dark-storm-cloud;
+  }
 }
 
 .app-wrapper {
@@ -98,18 +103,4 @@ body {
 .darkBg {
   background-color: $bauhaus;
 }
-
-body .sepiaColor {
-  color: $nuance;
-}
-  body {
-   -webkit-touch-callout: none;
-   -webkit-user-select: none;
-   -khtml-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
-   -webkit-tap-highlight-color: transparent;
- }
-
 </style>

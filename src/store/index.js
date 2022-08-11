@@ -12,7 +12,7 @@ export default createStore({
       noteIsChanged: false,
       clickOnNote: false
     },
-    changeColorScheme: false,
+    isDarkTheme: false,
     fontSize: 18
   },
 
@@ -31,8 +31,8 @@ export default createStore({
     deletedNotes(state) {
       return state.deletedNotes;
     },
-    changeColorScheme(state) {
-      return state.changeColorScheme;
+    isDarkTheme(state) {
+      return state.isDarkTheme;
     },
     fontSize(state) {
       return state.fontSize;
@@ -101,7 +101,7 @@ export default createStore({
     },
 
     toggleColors(state) {
-      state.changeColorScheme = !state.changeColorScheme;
+      state.isDarkTheme = !state.isDarkTheme;
     },
 
     enlargeFontSize(state) {
